@@ -1,0 +1,9 @@
+services:
+
+  app.repository.post:
+      class: AppBundle\Repository\PostRepository
+      arguments: ["@doctrine.orm.entity_manager"]
+
+  app.repository.comentario:
+      class: AppBundle\Repository\ComentarioRepository
+      arguments: ["@doctrine.orm.entity_manager"]

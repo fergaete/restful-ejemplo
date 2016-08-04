@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Comentario #{{ comentario.id }}</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Post</th>
+                <td><a href="{{ path('post_show', { 'id': comentario.post.id }) }}">{{ comentario.post }}</a></td>
+            </tr>
+            <tr>
+                <th>Autor</th>
+                <td>{{ comentario.autor }}</td>
+            </tr>
+            <tr>
+                <th>Contenido</th>
+                <td>{{ comentario.contenido }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{% if comentario.creadoAt %}{{ comentario.creadoAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{% if comentario.updatedAt %}{{ comentario.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('comentario_index') }}">Volver al listado</a>
+        </li>
+        <li>
+            <a href="{{ path('comentario_edit', { 'id': comentario.id }) }}">Editar</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Eliminar">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,40 @@
+#Rest Api
+fos_rest:
+    zone:
+        - { path:'^/api/*' }
+    param_fetcher_listener: true
+    body_listener: true
+    format_listener:
+        rules:
+            - { path: '^/api', priorities: [ json, xml ], fallback_format: json, prefer_extension: false }
+
+    body_converter:
+        enabled: true
+        validate: true
+
+    view:
+        view_response_listener: 'force'
+        formats:
+            xml:  true
+            json: true
+        templating_formats:
+            html: true
+
+    serializer:
+        serialize_null: true
+
+    exception:
+        codes:
+            'Symfony\Component\Routing\Exception\ResourceNotFoundException': 404
+            'Doctrine\ORM\OptimisticLockException': 409
+            'Doctrine\DBAL\Exception\UniqueConstraintViolationException': 409
+        messages:
+            'Symfony\Component\Routing\Exception\ResourceNotFoundException': true
+    allowed_methods_listener: true
+    access_denied_listener:
+        json: true
+
+    disable_csrf_role: ROLE_API
+
+    service:
+        inflector: rest.inflector.spanish

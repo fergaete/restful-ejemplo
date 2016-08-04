@@ -1,0 +1,8 @@
+services:
+    rest.inflector.spanish:
+        class: RestBundle\Inflector\SpanishInflector
+    rest.output_array.extractor.custom_parser:
+        class: RestBundle\Parser\OutputArray
+        arguments: ['@nelmio_api_doc.parser.jms_metadata_parser']
+        tags:
+            - { name: nelmio_api_doc.extractor.parser, priority: 2 }

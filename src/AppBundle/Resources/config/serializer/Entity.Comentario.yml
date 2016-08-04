@@ -1,0 +1,22 @@
+AppBundle\Entity\Comentario:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+        autor:
+            expose: true
+        contenido:
+            expose: true
+        creadoAt:
+            expose: true
+        updatedAt:
+            expose: true
+        post:
+            expose: true
+    custom_accessor_order:
+        - id
+        - post
+        - autor
+        - contenido
+        - creadoAt
+        - updatedAt

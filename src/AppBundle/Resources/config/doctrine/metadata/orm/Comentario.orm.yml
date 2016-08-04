@@ -1,0 +1,45 @@
+Comentario:
+    type: entity
+    table: comentario
+    indexes:
+        comentario_id_post_idx:
+            columns:
+                - id_post
+    id:
+        id:
+            type: bigint
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        autor:
+            type: string
+            nullable: false
+            length: 20
+            fixed: false
+        contenido:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+        creadoAt:
+            type: datetime
+            nullable: false
+            column: creado_at
+        updatedAt:
+            type: datetime
+            nullable: true
+            column: updated_at
+    manyToOne:
+        post:
+            targetEntity: Post
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_post:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,7 @@
+app_post:
+    resource: "@AppBundle/Resources/config/routing/post.yml"
+    prefix:   /post
+
+app_comentario:
+    resource: "@AppBundle/Resources/config/routing/comentario.yml"
+    prefix:   /comentario

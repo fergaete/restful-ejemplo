@@ -1,0 +1,19 @@
+AppBundle\Entity\Post:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+        titulo:
+            expose: true
+        contenido:
+            expose: true
+        createdAt:
+            expose: true
+        updatedAt:
+            expose: true
+    custom_accessor_order:
+        - id
+        - titulo
+        - contenido
+        - createdAt
+        - updatedAt
