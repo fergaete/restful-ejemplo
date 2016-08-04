@@ -1,68 +1,49 @@
-Symfony Standard Edition
-========================
+Stack Proyectos PHP API RESTFul
+===============================
 
-Welcome to the Symfony Standard Edition - a fully-functional Symfony
-application that you can use as the skeleton for your new applications.
+Código de ejemplo para el manejo de API RESTFul
 
-For details on how to download and get started with Symfony, see the
-[Installation][1] chapter of the Symfony Documentation.
+[**PHP**]
+------------------
+Recomendaciones de Normas de PHP
+http://www.php-fig.org/psr/
 
-What's inside?
---------------
+RESTFul:
+------------------
+[**Framework Symfony 2.8.x:**]
+    * Dependencia: PHP >= 5.4.0
+    https://symfony.com/doc/current/index.html
+[**Composer:**]
+    * https://getcomposer.org/
+    Manejador de dependencias, "no un gestor de paquetes".
+    Buscar dependencias y librerias: https://packagist.org/
+[**Códigos de estado HTTP:**]
+    - https://es.wikipedia.org/wiki/Anexo:C%C3%B3digos_de_estado_HTTP
+[**Stack Bundles:**]
+    * Doctrine ORM/DBAL:
+    - http://www.doctrine-project.org/
+* FOSRestBundle:
+    - http://symfony.com/doc/master/bundles/FOSRestBundle/index.html
+    - composer require friendsofsymfony/rest-bundle
+    - configurar
+* JMSSerializerBundle (Serializador):
+    - http://jmsyst.com/bundles/JMSSerializerBundle
+    - composer require jms/serializer-bundle
+    - configurar
+* NelmioApiDocBundle (ApiDoc):
+    - http://symfony.com/doc/current/bundles/NelmioApiDocBundle/index.html
+    - composer require nelmio/api-doc-bundle
+    - configurar
 
-The Symfony Standard Edition is configured with the following defaults:
+Comandos para inciar:
+---------------------
+* $ composer create-project symfony/framework-standard-edition ejemplo_rest "2.8.*"
+    * configurar ambiente (base de datos, servidor de email, etc...)
+* "Instalar dependencias para api-doc"
+* $ php app/console doctrine:mapping:convert yml src/AppBundle/Resources/config/doctrine/metadata/orm --from-database --force
+* $ php app/console doctrine:mapping:import AppBundle annotation
+* $ php app/console doctrine:generate:entities AppBundle
 
-  * An AppBundle you can use to start coding;
-
-  * Twig as the only configured template engine;
-
-  * Doctrine ORM/DBAL;
-
-  * Swiftmailer;
-
-  * Annotations enabled for everything.
-
-It comes pre-configured with the following bundles:
-
-  * **FrameworkBundle** - The core Symfony framework bundle
-
-  * [**SensioFrameworkExtraBundle**][6] - Adds several enhancements, including
-    template and routing annotation capability
-
-  * [**DoctrineBundle**][7] - Adds support for the Doctrine ORM
-
-  * [**TwigBundle**][8] - Adds support for the Twig templating engine
-
-  * [**SecurityBundle**][9] - Adds security by integrating Symfony's security
-    component
-
-  * [**SwiftmailerBundle**][10] - Adds support for Swiftmailer, a library for
-    sending emails
-
-  * [**MonologBundle**][11] - Adds support for Monolog, a logging library
-
-  * **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
-    the web debug toolbar
-
-  * **SensioDistributionBundle** (in dev/test env) - Adds functionality for
-    configuring and working with Symfony distributions
-
-  * [**SensioGeneratorBundle**][13] (in dev/test env) - Adds code generation
-    capabilities
-
-  * **DebugBundle** (in dev/test env) - Adds Debug and VarDumper component
-    integration
-
-All libraries and bundles included in the Symfony Standard Edition are
-released under the MIT or BSD license.
-
-Enjoy!
-
-[1]:  https://symfony.com/doc/2.8/book/installation.html
-[6]:  https://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/index.html
-[7]:  https://symfony.com/doc/2.8/book/doctrine.html
-[8]:  https://symfony.com/doc/2.8/book/templating.html
-[9]:  https://symfony.com/doc/2.8/book/security.html
-[10]: https://symfony.com/doc/2.8/cookbook/email.html
-[11]: https://symfony.com/doc/2.8/cookbook/logging/monolog.html
-[13]: https://symfony.com/doc/2.8/bundles/SensioGeneratorBundle/index.html
+Comandos para instalar el aplicativo:
+-------------------------------------
+$ composer install
